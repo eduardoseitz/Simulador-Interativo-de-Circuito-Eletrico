@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class ComponentController : MonoBehaviour
 {
+    
+    #region Declaracoes
+    
     [Header("Propriedades do componente")]
     [SerializeField] internal string label = "Componente";
     [SerializeField] internal TextMeshProUGUI labelText;
@@ -11,9 +14,16 @@ public class ComponentController : MonoBehaviour
     {
         labelText.text = label;
     }
+    
+    #endregion
 
+    #region Funcoes Ajudantes
+    
     public virtual void UseComponent()
     {
         
     }
+    
+    #endregion
+    
 }
