@@ -75,3 +75,4 @@ crashlytics-build.properties
 *.log
 /Simulador Interativo de Circuito Eletrico/Temp
 /Simulador Interativo de Circuito Eletrico/.idea
+*.log
