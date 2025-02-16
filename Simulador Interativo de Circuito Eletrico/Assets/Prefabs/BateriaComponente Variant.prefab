@@ -187,10 +187,8 @@ MonoBehaviour:
   isInteractable: 0
   groundPole: {fileID: 6161489235151249776}
   powerPole: {fileID: 7784614260283764237}
-  lineRendererPrefab: {fileID: 4058864820595993433, guid: a9c0af7ac8f3b9141bb6d264f49c44f9, type: 3}
-  lineRenderersList:
-  - {fileID: 0}
-  isOn: 1
+  hasPower: 1
+  isPassingPower: 0
   connectedComponentsList: []
 --- !u!4 &7286960123563980971 stripped
 Transform:

@@ -18,7 +18,7 @@ public class CircuitManager : MonoBehaviour
     
     private Dictionary<Tuple<ComponentController, ComponentController>, Tuple<LineRenderer,LineRenderer>> _cableConnectionDictionary;
         
-    private bool _isCircuitComplete; //
+    private bool _isCircuitValid; //
     [SerializeField] private ComponentController[] _components;
     [SerializeField] private ComponentController _firstSelectedComponent; //
     [SerializeField] private ComponentController _lastSelectedComponent; //
@@ -51,9 +51,47 @@ public class CircuitManager : MonoBehaviour
 
     public void UpdateCircuitState()
     {
-        // Update ui.
-        circuitStateText.text = "Circuito" + ((_isCircuitComplete) ? " Completo" : " Incompleto");
-        circuitStateText.color = (_isCircuitComplete) ? Color.green : Color.red;
+        // Corta a energia de todos os componentes.
+        foreach (ComponentController _component in _components)
+            _component.hasPower = false;
+        
+        // Alimenta todos os dispositivos conectador a uma fonte.
+        foreach (ComponentController _component in _components)
+        {
+            if (_component.GetComponent<PowerComponentController>())
+            {
+                _component.hasPower = true;
+                for (int _i = 0; _i < _component.connectedComponentsList.Count; _i++)
+                {
+                    if (_component.connectedComponentsList[_i] != _component)
+                    {
+                        _component.connectedComponentsList[_i].hasPower = true;
+                        if (_component.connectedComponentsList[_i].isPassingPower)
+                        {
+                            _component.connectedComponentsList[_i].hasPower = true;
+                            for (int _j = 0; _j < _component.connectedComponentsList[_i].connectedComponentsList.Count; _j++)
+                            {
+                                if (_component.connectedComponentsList[_i].connectedComponentsList[_j] != _component.connectedComponentsList[_i])
+                                {
+                                    _component.connectedComponentsList[_i].connectedComponentsList[_j].hasPower = true;
+                                    if (_component.connectedComponentsList[_i].connectedComponentsList[_j].isPassingPower)
+                                    {
+
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        // Update componentes.
+        foreach (ComponentController _component in _components)
+            _component.UpdateState();
+        
+        // Checar se circuito complete.
+        ValidateCircuit();
     }
 
     public void StartConnection(ComponentController component)
@@ -86,6 +124,9 @@ public class CircuitManager : MonoBehaviour
         
         // Cria cabo visual.
         DrawCable(_firstSelectedComponent, _lastSelectedComponent);
+        
+        // Update circuito.
+        UpdateCircuitState();
     }
 
     public void CancelConnection()
@@ -115,6 +156,9 @@ public class CircuitManager : MonoBehaviour
         // Update ui.
         foreach (var componentUI in _components)
             componentUI.ComponentUI.UpdateUI();
+        
+        // Update circuito.
+        UpdateCircuitState();
     }
     
     private void DrawCable(ComponentController firstComponent, ComponentController lastComponent)
@@ -142,21 +186,43 @@ public class CircuitManager : MonoBehaviour
     {
         foreach (ComponentController _connectedComponent in component.connectedComponentsList)
         {
-            // Apaga cabo fase do tela e do dicionario.
             if (_cableConnectionDictionary.ContainsKey(new Tuple<ComponentController, ComponentController>(component, _connectedComponent)))
             {
+                // Apaga cabo fase do tela.
                 Destroy(_cableConnectionDictionary[new Tuple<ComponentController, ComponentController>(component, _connectedComponent)].Item1.gameObject);
+                
+                // Apaga cabo neutro do tela.
                 Destroy(_cableConnectionDictionary[new Tuple<ComponentController, ComponentController>(component, _connectedComponent)].Item2.gameObject);
+                
+                // Apaga cabos do dicionario.
                 _cableConnectionDictionary.Remove(new Tuple<ComponentController, ComponentController>(component, _connectedComponent));
             }
-            // Apaga cabo neutro do tela e do dicionario.
             else if (_cableConnectionDictionary.ContainsKey(new Tuple<ComponentController, ComponentController>(_connectedComponent, component)))
             {
+                // Apaga cabo fase do tela.
                 Destroy(_cableConnectionDictionary[new Tuple<ComponentController, ComponentController>(_connectedComponent, component)].Item1.gameObject);
+                
+                // Apaga cabo neutro do tela.
                 Destroy(_cableConnectionDictionary[new Tuple<ComponentController, ComponentController>(_connectedComponent, component)].Item2.gameObject);
+                
+                // Apaga cabos do dicionario.
                 _cableConnectionDictionary.Remove(new Tuple<ComponentController, ComponentController>(_connectedComponent, component));
             }
         }
+    }
+
+    private void ValidateCircuit()
+    {
+        // Checar se valido
+        _isCircuitValid =
+            ((_cableConnectionDictionary.ContainsKey(new Tuple<ComponentController, ComponentController>(_components[0], _components[1])) || _cableConnectionDictionary.ContainsKey(new Tuple<ComponentController, ComponentController>(_components[1], _components[0])))
+             && (_cableConnectionDictionary.ContainsKey(new Tuple<ComponentController, ComponentController>(_components[1], _components[2])) || _cableConnectionDictionary.ContainsKey(new Tuple<ComponentController, ComponentController>(_components[2], _components[1])))
+             && (!_cableConnectionDictionary.ContainsKey(new Tuple<ComponentController, ComponentController>(_components[0], _components[2])) && !_cableConnectionDictionary.ContainsKey(new Tuple<ComponentController, ComponentController>(_components[2], _components[0])))
+             && _components[2].hasPower);
+        
+        // Update ui.
+        circuitStateText.text = "Circuito" + ((_isCircuitValid) ? " Completo" : " Incompleto");
+        circuitStateText.color = (_isCircuitValid) ? Color.green : Color.red;
     }
 
     #endregion

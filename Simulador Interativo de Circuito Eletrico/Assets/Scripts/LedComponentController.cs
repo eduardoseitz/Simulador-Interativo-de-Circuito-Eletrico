@@ -15,9 +15,19 @@ public class LedComponentController : ComponentController
     private void Start()
     {
         base.Start();
-        base.ComponentUI.UpdateLabel((base.isOn) ? " Ligada" : " Desligada");
+        UpdateState();
     }
     
+    public override void UpdateState()
+    {
+        base.UpdateState();
+        
+        // Liga ou desliga led.
+        offModel.SetActive(!base.hasPower);
+        onModel.SetActive(base.hasPower);
+        base.ComponentUI.UpdateLabel((base.hasPower) ? " Ligado" : " Desligado");
+    }
+
     #endregion
     
 }

@@ -8,6 +8,11 @@ public class PowerComponentController : ComponentController
     private void Start()
     {
         base.Start();
+        base.hasPower = true;
+    }
+    
+    public override void UpdateState()
+    {
     }
     
     #endregion

@@ -86,7 +86,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8469808551898521146, guid: 037319c23767a0a4fae65787187c058f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8469808551898521146, guid: 037319c23767a0a4fae65787187c058f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -94,7 +94,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8469808551898521146, guid: 037319c23767a0a4fae65787187c058f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 10
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8469808551898521146, guid: 037319c23767a0a4fae65787187c058f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -155,9 +155,8 @@ MonoBehaviour:
   isInteractable: 0
   groundPole: {fileID: 646628215786953442}
   powerPole: {fileID: 8233729937658260170}
-  lineRendererPrefab: {fileID: 4058864820595993433, guid: a9c0af7ac8f3b9141bb6d264f49c44f9, type: 3}
-  lineRenderersList: []
-  isOn: 0
+  hasPower: 1
+  isPassingPower: 1
   connectedComponentsList: []
   offModel: {fileID: 5759151235472277065}
   onModel: {fileID: 1822992846298238984}

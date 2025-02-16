@@ -16,19 +16,25 @@ public class SwitchComponentController : ComponentController
     private void Start()
     {
         base.Start();
-        base.ComponentUI.UpdateLabel((base.isOn) ? " Ligada" : " Desligada");
+        UpdateState();
     }
     
     public override void Interact()
     {
-        base.Interact();
+        base.isPassingPower = !base.isPassingPower;
+        UpdateState();
         
-        // Liga ou desliga chave.
-        base.isOn = !base.isOn;
-        offModel.SetActive(!base.isOn);
-        onModel.SetActive(base.isOn);
-        base.ComponentUI.UpdateLabel((base.isOn) ? " Ligada" : " Desligada");
-        CircuitManager.instance.UpdateCircuitState();
+        // Update circuit.
+        base.Interact();
+    }
+    
+    public override void UpdateState()
+    {
+        base.UpdateState();
+        
+        offModel.SetActive(!base.isPassingPower);
+        onModel.SetActive(base.isPassingPower);
+        base.ComponentUI.UpdateLabel((base.isPassingPower) ? " Ligada" : " Desligada");
     }
 
     #endregion

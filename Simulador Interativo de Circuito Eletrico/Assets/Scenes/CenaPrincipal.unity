@@ -1046,18 +1046,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7548917351795149221, guid: f48545751e72d5d46a7506b61abdb4a6, type: 3}
-      propertyPath: lineRenderersList.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7548917351795149221, guid: f48545751e72d5d46a7506b61abdb4a6, type: 3}
-      propertyPath: powerCableLineRendererPrefab
-      value: 
-      objectReference: {fileID: 2019757867766195654, guid: 727f84717b30ea544bb2bf752d545b02, type: 3}
-    - target: {fileID: 7548917351795149221, guid: f48545751e72d5d46a7506b61abdb4a6, type: 3}
-      propertyPath: 'lineRenderersList.Array.data[0]'
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 8083302623386670889, guid: f48545751e72d5d46a7506b61abdb4a6, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1160,22 +1148,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ChaveComponente
       objectReference: {fileID: 0}
-    - target: {fileID: 8931655373941021458, guid: b82afa6601ca8e34f985259b43bba23c, type: 3}
-      propertyPath: lineRenderersList.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8931655373941021458, guid: b82afa6601ca8e34f985259b43bba23c, type: 3}
-      propertyPath: powerCableLineRendererPrefab
-      value: 
-      objectReference: {fileID: 2019757867766195654, guid: 727f84717b30ea544bb2bf752d545b02, type: 3}
-    - target: {fileID: 8931655373941021458, guid: b82afa6601ca8e34f985259b43bba23c, type: 3}
-      propertyPath: 'lineRenderersList.Array.data[0]'
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8931655373941021458, guid: b82afa6601ca8e34f985259b43bba23c, type: 3}
-      propertyPath: connectedComponentsList.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8958874819240390439, guid: b82afa6601ca8e34f985259b43bba23c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1237,18 +1209,6 @@ PrefabInstance:
     - target: {fileID: 8055264941740382812, guid: 09bf9fab6639cd749a81b5c434f968ba, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8453245707921685280, guid: 09bf9fab6639cd749a81b5c434f968ba, type: 3}
-      propertyPath: lineRenderersList.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8453245707921685280, guid: 09bf9fab6639cd749a81b5c434f968ba, type: 3}
-      propertyPath: powerCableLineRendererPrefab
-      value: 
-      objectReference: {fileID: 2019757867766195654, guid: 727f84717b30ea544bb2bf752d545b02, type: 3}
-    - target: {fileID: 8453245707921685280, guid: 09bf9fab6639cd749a81b5c434f968ba, type: 3}
-      propertyPath: 'lineRenderersList.Array.data[0]'
-      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8847286001464407518, guid: 09bf9fab6639cd749a81b5c434f968ba, type: 3}
       propertyPath: m_LocalPosition.x

@@ -12,7 +12,8 @@ public class ComponentController : MonoBehaviour
     public Transform groundPole;
     public Transform powerPole;
     
-    public bool isOn; //
+    public bool hasPower; //
+    public bool isPassingPower; //
     public List<ComponentController> connectedComponentsList; //
     private ComponentUI _componentUI;
 
@@ -54,11 +55,6 @@ public class ComponentController : MonoBehaviour
         CircuitManager.instance.DisconnectComponentFromAllComponents(this);
     }
     
-    public virtual void Interact()
-    {
-        
-    }
-    
     public virtual void ConfirmConnection()
     {
         CircuitManager.instance.CompleteConnection(this);
@@ -67,6 +63,16 @@ public class ComponentController : MonoBehaviour
     public virtual void CancelConnection()
     {
         CircuitManager.instance.CancelConnection();    
+    }
+    
+    public virtual void UpdateState()
+    {
+        
+    }
+    
+    public virtual void Interact()
+    {
+        CircuitManager.instance.UpdateCircuitState();
     }
     
     #endregion
