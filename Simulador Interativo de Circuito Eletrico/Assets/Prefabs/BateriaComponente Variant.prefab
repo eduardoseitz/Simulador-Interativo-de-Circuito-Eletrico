@@ -16,6 +16,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3610476526255495289, guid: 037319c23767a0a4fae65787187c058f, type: 3}
+      propertyPath: label
+      value: Bateria
+      objectReference: {fileID: 0}
     - target: {fileID: 3735581987638310820, guid: 037319c23767a0a4fae65787187c058f, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -163,17 +167,6 @@ PrefabInstance:
       insertIndex: 1
       addedObject: {fileID: 7548917351795149221}
   m_SourcePrefab: {fileID: 100100000, guid: 037319c23767a0a4fae65787187c058f, type: 3}
---- !u!114 &22576285528391872 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1223431656510662225, guid: 037319c23767a0a4fae65787187c058f, type: 3}
-  m_PrefabInstance: {fileID: 1200971945589188241}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2830798184546963272 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4027263067958258137, guid: 037319c23767a0a4fae65787187c058f, type: 3}
@@ -191,8 +184,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1cbfcf2bb6f5bf45b6fdef57932fc2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  label: Bateria
-  labelText: {fileID: 22576285528391872}
   isOn: 1
   connectedComponentsList: []
 --- !u!4 &7286960123563980971 stripped

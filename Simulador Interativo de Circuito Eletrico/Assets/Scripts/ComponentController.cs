@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -8,16 +9,24 @@ public class ComponentController : MonoBehaviour
     #region Declaracoes
     
     [Header("Propriedades do componente")]
-    [SerializeField] internal string label = "Componente";
-    [SerializeField] internal TextMeshProUGUI labelText;
     [SerializeField] internal bool isOn;
-    
+
+    internal ComponentUI componentUI;
     [SerializeField] internal List<ComponentController> connectedComponentsList;
     
+    #endregion
+
+    #region Funcoes MonoBehaviour
+
+    private void Awake()
+    {
+        componentUI = GetComponent<ComponentUI>();
+    }
+
     internal void Start()
     {
         connectedComponentsList = new List<ComponentController>();
-        UpdateUI();
+        componentUI.UpdateUI("");
     }
     
     #endregion
@@ -37,11 +46,6 @@ public class ComponentController : MonoBehaviour
     public virtual void Interact()
     {
         
-    }
-
-    internal virtual void UpdateUI()
-    {
-        labelText.text = label;
     }
     
     #endregion
