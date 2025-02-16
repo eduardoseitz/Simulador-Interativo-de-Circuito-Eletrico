@@ -185,8 +185,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f06b0d255ae12624390034365abcb1cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isInteractable: 1
   isOn: 0
-  connectedComponentsList: []
+  _connectedComponentsList: []
   offModel: {fileID: 6619607956038200306}
   onModel: {fileID: 8607226483227947396}
 --- !u!1001 &6687103839063035732

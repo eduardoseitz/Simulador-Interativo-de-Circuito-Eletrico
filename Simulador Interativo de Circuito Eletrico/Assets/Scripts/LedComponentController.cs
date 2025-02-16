@@ -8,7 +8,7 @@ public class LedComponentController : ComponentController
     private void Start()
     {
         base.Start();
-        base.componentUI.UpdateUI((base.isOn) ? " Ligada" : " Desligada");
+        base.componentUI.UpdateLabel((base.isOn) ? " Ligada" : " Desligada");
     }
     
     #endregion

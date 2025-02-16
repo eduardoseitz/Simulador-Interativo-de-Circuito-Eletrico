@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BatteryComponentController : ComponentController
+public class PowerComponentController : ComponentController
 {
     
     #region Funcoes ComponentController

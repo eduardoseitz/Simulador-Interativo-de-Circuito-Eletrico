@@ -519,6 +519,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2302112909992582664}
     m_Modifications:
+    - target: {fileID: 1195636582200618269, guid: ed9c75a72131dc94483eaa63056d97ae, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3610476526255495289}
+    - target: {fileID: 1195636582200618269, guid: ed9c75a72131dc94483eaa63056d97ae, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnInteractButtonClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 1195636582200618269, guid: ed9c75a72131dc94483eaa63056d97ae, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ComponentUI, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1195636582200618269, guid: ed9c75a72131dc94483eaa63056d97ae, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1790792693940490562, guid: ed9c75a72131dc94483eaa63056d97ae, type: 3}
       propertyPath: m_Name
       value: InteractButton
@@ -647,6 +663,22 @@ PrefabInstance:
     - target: {fileID: 389689034701395392, guid: ed9c75a72131dc94483eaa63056d97ae, type: 3}
       propertyPath: m_Color.g
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1195636582200618269, guid: ed9c75a72131dc94483eaa63056d97ae, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3610476526255495289}
+    - target: {fileID: 1195636582200618269, guid: ed9c75a72131dc94483eaa63056d97ae, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnCancelConnectionButtonClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 1195636582200618269, guid: ed9c75a72131dc94483eaa63056d97ae, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ComponentUI, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1195636582200618269, guid: ed9c75a72131dc94483eaa63056d97ae, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1790792693940490562, guid: ed9c75a72131dc94483eaa63056d97ae, type: 3}
       propertyPath: m_Name
@@ -785,6 +817,22 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1195636582200618269, guid: ed9c75a72131dc94483eaa63056d97ae, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3610476526255495289}
+    - target: {fileID: 1195636582200618269, guid: ed9c75a72131dc94483eaa63056d97ae, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnConfirmConnectionButtonClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 1195636582200618269, guid: ed9c75a72131dc94483eaa63056d97ae, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ComponentUI, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1195636582200618269, guid: ed9c75a72131dc94483eaa63056d97ae, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1790792693940490562, guid: ed9c75a72131dc94483eaa63056d97ae, type: 3}
       propertyPath: m_Name
       value: ComfirmButton
@@ -910,6 +958,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2302112909992582664}
     m_Modifications:
+    - target: {fileID: 1195636582200618269, guid: ed9c75a72131dc94483eaa63056d97ae, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3610476526255495289}
+    - target: {fileID: 1195636582200618269, guid: ed9c75a72131dc94483eaa63056d97ae, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnConnectButtonClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 1195636582200618269, guid: ed9c75a72131dc94483eaa63056d97ae, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ComponentUI, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1195636582200618269, guid: ed9c75a72131dc94483eaa63056d97ae, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1790792693940490562, guid: ed9c75a72131dc94483eaa63056d97ae, type: 3}
       propertyPath: m_Name
       value: ConnectButton
@@ -1042,6 +1106,22 @@ PrefabInstance:
     - target: {fileID: 389689034701395392, guid: ed9c75a72131dc94483eaa63056d97ae, type: 3}
       propertyPath: m_Color.g
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1195636582200618269, guid: ed9c75a72131dc94483eaa63056d97ae, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3610476526255495289}
+    - target: {fileID: 1195636582200618269, guid: ed9c75a72131dc94483eaa63056d97ae, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnDisconnectButtonClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 1195636582200618269, guid: ed9c75a72131dc94483eaa63056d97ae, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ComponentUI, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1195636582200618269, guid: ed9c75a72131dc94483eaa63056d97ae, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1790792693940490562, guid: ed9c75a72131dc94483eaa63056d97ae, type: 3}
       propertyPath: m_Name

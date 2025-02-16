@@ -1,19 +1,25 @@
-using System;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
+[RequireComponent(typeof(ComponentUI))]
 public class ComponentController : MonoBehaviour
 {
     
     #region Declaracoes
-    
-    [Header("Propriedades do componente")]
-    [SerializeField] internal bool isOn;
 
+    [Header("Propriedades do componente")] 
+    [SerializeField] internal bool isInteractable;
+    [SerializeField] internal bool isOn;
+    public List<ComponentController> connectedComponentsList;
     internal ComponentUI componentUI;
-    [SerializeField] internal List<ComponentController> connectedComponentsList;
     
+
+    #endregion
+
+    #region Getters e Setters
+
+    internal bool IsInteractable => isInteractable;
+
     #endregion
 
     #region Funcoes MonoBehaviour
@@ -26,7 +32,7 @@ public class ComponentController : MonoBehaviour
     internal void Start()
     {
         connectedComponentsList = new List<ComponentController>();
-        componentUI.UpdateUI("");
+        componentUI.UpdateUI();
     }
     
     #endregion
@@ -35,17 +41,27 @@ public class ComponentController : MonoBehaviour
     
     public virtual void Connect()
     {
-        
+        CircuitManager.instance.StartConnection(this);
     }
     
     public virtual void Disconnect()
     {
-        
+        CircuitManager.instance.DisconnectAllFromComponent(this);
     }
     
     public virtual void Interact()
     {
         
+    }
+    
+    public virtual void ConfirmConnection()
+    {
+        CircuitManager.instance.CompleteConnection(this);
+    }
+    
+    public virtual void CancelConnection()
+    {
+        CircuitManager.instance.CancelConnection();    
     }
     
     #endregion
