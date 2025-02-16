@@ -9,8 +9,6 @@ public class SwitchComponentController : ComponentController
     [SerializeField] private GameObject offModel;
     [SerializeField] private GameObject onModel;
     
-    private bool _isOn;
-    
     #endregion
 
     #region Funcoes ComponentController
@@ -18,19 +16,27 @@ public class SwitchComponentController : ComponentController
     private void Start()
     {
         base.Start();
+        UpdateUI();
     }
     
-    public override void UseComponent()
+    public override void Interact()
     {
-        base.UseComponent();
+        base.Interact();
         
         // Liga ou desliga chave.
-        _isOn = !_isOn;
-        offModel.SetActive(!_isOn);
-        onModel.SetActive(_isOn);
-        base.labelText.text = base.label + ((_isOn) ? " Ligada" : " Desligada");
+        base.isOn = !base.isOn;
+        offModel.SetActive(!base.isOn);
+        onModel.SetActive(base.isOn);
+        UpdateUI();
         CircuitManager.instance.UpdateCircuitState();
     }
+
+    internal override void UpdateUI()
+    {
+        base.UpdateUI();
+        base.labelText.text += ((base.isOn) ? " Ligada" : " Desligada");
+    }
+
     #endregion
     
 }

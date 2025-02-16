@@ -8,13 +8,89 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 17298324793723788, guid: 037319c23767a0a4fae65787187c058f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8931655373941021458}
+    - target: {fileID: 17298324793723788, guid: 037319c23767a0a4fae65787187c058f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Interact
+      objectReference: {fileID: 0}
+    - target: {fileID: 17298324793723788, guid: 037319c23767a0a4fae65787187c058f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ComponentController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 17298324793723788, guid: 037319c23767a0a4fae65787187c058f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 608155173801277395, guid: 037319c23767a0a4fae65787187c058f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2425508071389479091, guid: 037319c23767a0a4fae65787187c058f, type: 3}
+      propertyPath: m_fontSize
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3735581987638310820, guid: 037319c23767a0a4fae65787187c058f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3735581987638310820, guid: 037319c23767a0a4fae65787187c058f, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3735581987638310820, guid: 037319c23767a0a4fae65787187c058f, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3735581987638310820, guid: 037319c23767a0a4fae65787187c058f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3735581987638310820, guid: 037319c23767a0a4fae65787187c058f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4027263067958258137, guid: 037319c23767a0a4fae65787187c058f, type: 3}
       propertyPath: m_Name
       value: ChaveComponente Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 6011493844971081104, guid: 037319c23767a0a4fae65787187c058f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8931655373941021458}
+    - target: {fileID: 6011493844971081104, guid: 037319c23767a0a4fae65787187c058f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Connect
+      objectReference: {fileID: 0}
+    - target: {fileID: 6011493844971081104, guid: 037319c23767a0a4fae65787187c058f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ComponentController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6011493844971081104, guid: 037319c23767a0a4fae65787187c058f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7949806093241904985, guid: 037319c23767a0a4fae65787187c058f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8931655373941021458}
+    - target: {fileID: 7949806093241904985, guid: 037319c23767a0a4fae65787187c058f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Disconnect
+      objectReference: {fileID: 0}
+    - target: {fileID: 7949806093241904985, guid: 037319c23767a0a4fae65787187c058f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ComponentController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7949806093241904985, guid: 037319c23767a0a4fae65787187c058f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8469808551898521146, guid: 037319c23767a0a4fae65787187c058f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8469808551898521146, guid: 037319c23767a0a4fae65787187c058f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -22,7 +98,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8469808551898521146, guid: 037319c23767a0a4fae65787187c058f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8469808551898521146, guid: 037319c23767a0a4fae65787187c058f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -98,6 +174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   label: Chave
   labelText: {fileID: 6879712098361654994}
+  connectedComponentsList: []
   offModel: {fileID: 6619607956038200306}
   onModel: {fileID: 8607226483227947396}
 --- !u!1001 &6687103839063035732
