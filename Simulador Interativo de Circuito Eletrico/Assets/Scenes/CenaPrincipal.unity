@@ -793,7 +793,7 @@ MonoBehaviour:
   mainCamera: {fileID: 330585545}
   circuitStateText: {fileID: 710911760}
   powerCableLineRendererPrefab: {fileID: 2019757867766195654, guid: 727f84717b30ea544bb2bf752d545b02, type: 3}
-  lineRenderersList: []
+  groundCableLineRendererPrefab: {fileID: 1111696176878948744, guid: 3d76c0f9b632d624f8e8a2d662a03f72, type: 3}
   _components: []
   _firstSelectedComponent: {fileID: 0}
   _lastSelectedComponent: {fileID: 0}

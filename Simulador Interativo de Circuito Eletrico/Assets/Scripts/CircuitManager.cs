@@ -14,8 +14,9 @@ public class CircuitManager : MonoBehaviour
     [SerializeField] private Camera mainCamera;
     [SerializeField] private TextMeshProUGUI circuitStateText;
     public GameObject powerCableLineRendererPrefab;
+    public GameObject groundCableLineRendererPrefab;
     
-    private Dictionary<Tuple<ComponentController, ComponentController>, LineRenderer> _cableConnectionDictionary;
+    private Dictionary<Tuple<ComponentController, ComponentController>, Tuple<LineRenderer,LineRenderer>> _cableConnectionDictionary;
         
     private bool _isCircuitComplete; //
     [SerializeField] private ComponentController[] _components;
@@ -35,7 +36,7 @@ public class CircuitManager : MonoBehaviour
             instance = this;
 
         _components = GetComponentsInChildren<ComponentController>();
-        _cableConnectionDictionary = new Dictionary<Tuple<ComponentController, ComponentController>, LineRenderer>();
+        _cableConnectionDictionary = new Dictionary<Tuple<ComponentController, ComponentController>, Tuple<LineRenderer, LineRenderer>>();
     }
 
     private void Start()
@@ -114,12 +115,19 @@ public class CircuitManager : MonoBehaviour
     {
         if (!_cableConnectionDictionary.ContainsKey(new Tuple<ComponentController, ComponentController>(firstComponent, _lastSelectedComponent)) && !_cableConnectionDictionary.ContainsKey(new Tuple<ComponentController, ComponentController>(_lastSelectedComponent, firstComponent)))
         {
+            // Desenha cabo fase
             LineRenderer _newPowerCableLineRenderer = Instantiate(powerCableLineRendererPrefab, transform).GetComponent<LineRenderer>();
             _newPowerCableLineRenderer.positionCount = 2;
             _newPowerCableLineRenderer.SetPosition(0, firstComponent.powerPole.transform.position);
             _newPowerCableLineRenderer.SetPosition(1, lastComponent.powerPole.transform.position);
+            
+            // Desenha cabo neutro
+            LineRenderer _newGroundCableLineRenderer = Instantiate(groundCableLineRendererPrefab, transform).GetComponent<LineRenderer>();
+            _newGroundCableLineRenderer.positionCount = 2;
+            _newGroundCableLineRenderer.SetPosition(0, firstComponent.groundPole.transform.position);
+            _newGroundCableLineRenderer.SetPosition(1, lastComponent.groundPole.transform.position);
 
-            _cableConnectionDictionary.Add(new Tuple<ComponentController, ComponentController>(firstComponent, lastComponent), _newPowerCableLineRenderer);
+            _cableConnectionDictionary.Add(new Tuple<ComponentController, ComponentController>(firstComponent, lastComponent), new Tuple<LineRenderer, LineRenderer>(_newPowerCableLineRenderer, _newGroundCableLineRenderer));
         }
 
         Debug.Log(_cableConnectionDictionary.Count);
@@ -131,12 +139,14 @@ public class CircuitManager : MonoBehaviour
         {
             if (_cableConnectionDictionary.ContainsKey(new Tuple<ComponentController, ComponentController>(component, _connectedComponent)))
             {
-                Destroy(_cableConnectionDictionary[new Tuple<ComponentController, ComponentController>(component, _connectedComponent)].gameObject);
+                Destroy(_cableConnectionDictionary[new Tuple<ComponentController, ComponentController>(component, _connectedComponent)].Item1.gameObject);
+                Destroy(_cableConnectionDictionary[new Tuple<ComponentController, ComponentController>(component, _connectedComponent)].Item2.gameObject);
                 _cableConnectionDictionary.Remove(new Tuple<ComponentController, ComponentController>(component, _connectedComponent));
             }
             else if (_cableConnectionDictionary.ContainsKey(new Tuple<ComponentController, ComponentController>(_connectedComponent, component)))
             {
-                Destroy(_cableConnectionDictionary[new Tuple<ComponentController, ComponentController>(_connectedComponent, component)].gameObject);
+                Destroy(_cableConnectionDictionary[new Tuple<ComponentController, ComponentController>(_connectedComponent, component)].Item1.gameObject);
+                Destroy(_cableConnectionDictionary[new Tuple<ComponentController, ComponentController>(_connectedComponent, component)].Item2.gameObject);
                 _cableConnectionDictionary.Remove(new Tuple<ComponentController, ComponentController>(_connectedComponent, component));
             }
         }
