@@ -855,7 +855,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1790792693940490562, guid: ed9c75a72131dc94483eaa63056d97ae, type: 3}
       propertyPath: m_Name
-      value: ComfirmButton
+      value: ConfirmButton
       objectReference: {fileID: 0}
     - target: {fileID: 1790792693940490562, guid: ed9c75a72131dc94483eaa63056d97ae, type: 3}
       propertyPath: m_IsActive

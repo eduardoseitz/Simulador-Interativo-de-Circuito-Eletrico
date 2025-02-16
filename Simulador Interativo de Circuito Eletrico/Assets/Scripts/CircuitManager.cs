@@ -15,6 +15,8 @@ public class CircuitManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI circuitStateText;
     public GameObject powerCableLineRendererPrefab;
     public GameObject groundCableLineRendererPrefab;
+    [SerializeField] private AudioSource electricAudioSource;
+    [SerializeField] private AudioSource completeAudioSource;
     
     private Dictionary<Tuple<ComponentController, ComponentController>, Tuple<LineRenderer,LineRenderer>> _cableConnectionDictionary;
         
@@ -223,6 +225,16 @@ public class CircuitManager : MonoBehaviour
         // Update ui.
         circuitStateText.text = "Circuito" + ((_isCircuitValid) ? " Completo" : " Incompleto");
         circuitStateText.color = (_isCircuitValid) ? Color.green : Color.red;
+        
+        // Tocar ou parar som de energia.
+        if (_components[2].hasPower && !electricAudioSource.isPlaying)
+            electricAudioSource.Play();
+        else if (!_components[2].hasPower && electricAudioSource.isPlaying)
+            electricAudioSource.Stop();
+        
+        // Tocar som de vitoria.
+        if (_isCircuitValid)
+            completeAudioSource.Play();
     }
 
     #endregion
