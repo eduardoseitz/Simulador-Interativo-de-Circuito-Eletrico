@@ -1486,7 +1486,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1308962659038751823, guid: c517a1274fec4c940955153d364e952f, type: 3}
       propertyPath: m_text
-      value: Circuito Simples
+      value: "Come\xE7ar"
       objectReference: {fileID: 0}
     - target: {fileID: 1308962659038751823, guid: c517a1274fec4c940955153d364e952f, type: 3}
       propertyPath: m_fontSize
