@@ -36,13 +36,13 @@ public class ComponentUI : MonoBehaviour
         // Atualiza estado da UI.
         _componentUIState = newState;
         
-        // Atualiza botoes
+        // Atualiza botoes.
         HideAllButtons();
         switch (newState)
         {
             case ComponentUIState.Normal:
                 connectButton.gameObject.SetActive(true);
-                interactButton.gameObject.SetActive(_componentController.isInteractable);
+                interactButton.gameObject.SetActive(_componentController.IsInteractable);
                 if (_componentController.connectedComponentsList.Count > 0)
                     disconnectButton.gameObject.SetActive(true);
                 break;

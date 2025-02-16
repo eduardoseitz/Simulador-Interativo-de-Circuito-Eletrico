@@ -792,6 +792,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 330585545}
   circuitStateText: {fileID: 710911760}
+  powerCableLineRendererPrefab: {fileID: 2019757867766195654, guid: 727f84717b30ea544bb2bf752d545b02, type: 3}
+  lineRenderersList: []
   _components: []
   _firstSelectedComponent: {fileID: 0}
   _lastSelectedComponent: {fileID: 0}
@@ -893,7 +895,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7286960123563980971, guid: f48545751e72d5d46a7506b61abdb4a6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7286960123563980971, guid: f48545751e72d5d46a7506b61abdb4a6, type: 3}
       propertyPath: m_LocalRotation.w
@@ -922,6 +924,18 @@ PrefabInstance:
     - target: {fileID: 7286960123563980971, guid: f48545751e72d5d46a7506b61abdb4a6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7548917351795149221, guid: f48545751e72d5d46a7506b61abdb4a6, type: 3}
+      propertyPath: lineRenderersList.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7548917351795149221, guid: f48545751e72d5d46a7506b61abdb4a6, type: 3}
+      propertyPath: powerCableLineRendererPrefab
+      value: 
+      objectReference: {fileID: 2019757867766195654, guid: 727f84717b30ea544bb2bf752d545b02, type: 3}
+    - target: {fileID: 7548917351795149221, guid: f48545751e72d5d46a7506b61abdb4a6, type: 3}
+      propertyPath: 'lineRenderersList.Array.data[0]'
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8083302623386670889, guid: f48545751e72d5d46a7506b61abdb4a6, type: 3}
       propertyPath: m_AnchorMax.y
@@ -991,7 +1005,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4182132289477445305, guid: b82afa6601ca8e34f985259b43bba23c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4182132289477445305, guid: b82afa6601ca8e34f985259b43bba23c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1024,6 +1038,22 @@ PrefabInstance:
     - target: {fileID: 8674094803794211162, guid: b82afa6601ca8e34f985259b43bba23c, type: 3}
       propertyPath: m_Name
       value: ChaveComponente
+      objectReference: {fileID: 0}
+    - target: {fileID: 8931655373941021458, guid: b82afa6601ca8e34f985259b43bba23c, type: 3}
+      propertyPath: lineRenderersList.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8931655373941021458, guid: b82afa6601ca8e34f985259b43bba23c, type: 3}
+      propertyPath: powerCableLineRendererPrefab
+      value: 
+      objectReference: {fileID: 2019757867766195654, guid: 727f84717b30ea544bb2bf752d545b02, type: 3}
+    - target: {fileID: 8931655373941021458, guid: b82afa6601ca8e34f985259b43bba23c, type: 3}
+      propertyPath: 'lineRenderersList.Array.data[0]'
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8931655373941021458, guid: b82afa6601ca8e34f985259b43bba23c, type: 3}
+      propertyPath: connectedComponentsList.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8958874819240390439, guid: b82afa6601ca8e34f985259b43bba23c, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1087,6 +1117,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8453245707921685280, guid: 09bf9fab6639cd749a81b5c434f968ba, type: 3}
+      propertyPath: lineRenderersList.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8453245707921685280, guid: 09bf9fab6639cd749a81b5c434f968ba, type: 3}
+      propertyPath: powerCableLineRendererPrefab
+      value: 
+      objectReference: {fileID: 2019757867766195654, guid: 727f84717b30ea544bb2bf752d545b02, type: 3}
+    - target: {fileID: 8453245707921685280, guid: 09bf9fab6639cd749a81b5c434f968ba, type: 3}
+      propertyPath: 'lineRenderersList.Array.data[0]'
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8847286001464407518, guid: 09bf9fab6639cd749a81b5c434f968ba, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10
@@ -1097,7 +1139,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8847286001464407518, guid: 09bf9fab6639cd749a81b5c434f968ba, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8847286001464407518, guid: 09bf9fab6639cd749a81b5c434f968ba, type: 3}
       propertyPath: m_LocalRotation.w

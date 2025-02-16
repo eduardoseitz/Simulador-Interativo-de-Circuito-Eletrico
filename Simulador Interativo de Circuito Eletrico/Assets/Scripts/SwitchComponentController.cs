@@ -16,7 +16,7 @@ public class SwitchComponentController : ComponentController
     private void Start()
     {
         base.Start();
-        base.componentUI.UpdateLabel((base.isOn) ? " Ligada" : " Desligada");
+        base.ComponentUI.UpdateLabel((base.isOn) ? " Ligada" : " Desligada");
     }
     
     public override void Interact()
@@ -27,7 +27,7 @@ public class SwitchComponentController : ComponentController
         base.isOn = !base.isOn;
         offModel.SetActive(!base.isOn);
         onModel.SetActive(base.isOn);
-        base.componentUI.UpdateLabel((base.isOn) ? " Ligada" : " Desligada");
+        base.ComponentUI.UpdateLabel((base.isOn) ? " Ligada" : " Desligada");
         CircuitManager.instance.UpdateCircuitState();
     }
 

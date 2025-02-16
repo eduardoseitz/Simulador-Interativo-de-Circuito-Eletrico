@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -12,8 +13,11 @@ public class CircuitManager : MonoBehaviour
     [Header("Propriedade do circuito")]
     [SerializeField] private Camera mainCamera;
     [SerializeField] private TextMeshProUGUI circuitStateText;
-
-    private bool _isCircuitComplete;
+    public GameObject powerCableLineRendererPrefab;
+    
+    private Dictionary<Tuple<ComponentController, ComponentController>, LineRenderer> _cableConnectionDictionary;
+        
+    private bool _isCircuitComplete; //
     [SerializeField] private ComponentController[] _components;
     [SerializeField] private ComponentController _firstSelectedComponent; //
     [SerializeField] private ComponentController _lastSelectedComponent; //
@@ -31,6 +35,7 @@ public class CircuitManager : MonoBehaviour
             instance = this;
 
         _components = GetComponentsInChildren<ComponentController>();
+        _cableConnectionDictionary = new Dictionary<Tuple<ComponentController, ComponentController>, LineRenderer>();
     }
 
     private void Start()
@@ -54,9 +59,9 @@ public class CircuitManager : MonoBehaviour
         for (int i = 0; i < _components.Length; i++)
         {
             if (_components[i] == component)
-                _components[i].componentUI.UpdateUI(ComponentUIState.FirstConnection);
+                _components[i].ComponentUI.UpdateUI(ComponentUIState.FirstConnection);
             else
-                _components[i].componentUI.UpdateUI(ComponentUIState.LastConnection);
+                _components[i].ComponentUI.UpdateUI(ComponentUIState.LastConnection);
         }
     }
 
@@ -71,7 +76,10 @@ public class CircuitManager : MonoBehaviour
         
         // Update ui.
         for (int i = 0; i < _components.Length; i++)
-            _components[i].componentUI.UpdateUI(ComponentUIState.Normal);
+            _components[i].ComponentUI.UpdateUI(ComponentUIState.Normal);
+        
+        // Create cable.
+        DrawCable(_firstSelectedComponent, _lastSelectedComponent);
     }
 
     public void CancelConnection()
@@ -81,23 +89,59 @@ public class CircuitManager : MonoBehaviour
         
         // Update ui.
         for (int i = 0; i < _components.Length; i++)
-            _components[i].componentUI.UpdateUI(ComponentUIState.Normal);
+            _components[i].ComponentUI.UpdateUI(ComponentUIState.Normal);
     }
     
-    public void DisconnectAllFromComponent(ComponentController component)
+    public void DisconnectComponentFromAllComponents(ComponentController component)
     {
-        for (int i = 0; i < component.connectedComponentsList.Count; i++)
+        // Remove line cables.
+        EraseCable(component);
+        
+        // Remove connections.
+        foreach (ComponentController otherComponent in component.connectedComponentsList)
         {
-            if (component.connectedComponentsList[i].connectedComponentsList.Contains(component))
-                component.connectedComponentsList[i].connectedComponentsList.Remove(component);
+            if (otherComponent.connectedComponentsList.Contains(component))
+                otherComponent.connectedComponentsList.Remove(component);
         }
-
         component.connectedComponentsList = new List<ComponentController>();
 
+        // Update ui.
         foreach (var componentUI in _components)
+            componentUI.ComponentUI.UpdateUI();
+    }
+    
+    private void DrawCable(ComponentController firstComponent, ComponentController lastComponent)
+    {
+        if (!_cableConnectionDictionary.ContainsKey(new Tuple<ComponentController, ComponentController>(firstComponent, _lastSelectedComponent)) && !_cableConnectionDictionary.ContainsKey(new Tuple<ComponentController, ComponentController>(_lastSelectedComponent, firstComponent)))
         {
-            componentUI.componentUI.UpdateUI();
+            LineRenderer _newPowerCableLineRenderer = Instantiate(powerCableLineRendererPrefab, transform).GetComponent<LineRenderer>();
+            _newPowerCableLineRenderer.positionCount = 2;
+            _newPowerCableLineRenderer.SetPosition(0, firstComponent.powerPole.transform.position);
+            _newPowerCableLineRenderer.SetPosition(1, lastComponent.powerPole.transform.position);
+
+            _cableConnectionDictionary.Add(new Tuple<ComponentController, ComponentController>(firstComponent, lastComponent), _newPowerCableLineRenderer);
         }
+
+        Debug.Log(_cableConnectionDictionary.Count);
+    }
+    
+    private void EraseCable(ComponentController component)
+    {
+        foreach (ComponentController _connectedComponent in component.connectedComponentsList)
+        {
+            if (_cableConnectionDictionary.ContainsKey(new Tuple<ComponentController, ComponentController>(component, _connectedComponent)))
+            {
+                Destroy(_cableConnectionDictionary[new Tuple<ComponentController, ComponentController>(component, _connectedComponent)].gameObject);
+                _cableConnectionDictionary.Remove(new Tuple<ComponentController, ComponentController>(component, _connectedComponent));
+            }
+            else if (_cableConnectionDictionary.ContainsKey(new Tuple<ComponentController, ComponentController>(_connectedComponent, component)))
+            {
+                Destroy(_cableConnectionDictionary[new Tuple<ComponentController, ComponentController>(_connectedComponent, component)].gameObject);
+                _cableConnectionDictionary.Remove(new Tuple<ComponentController, ComponentController>(_connectedComponent, component));
+            }
+        }
+        
+        Debug.Log(_cableConnectionDictionary.Count);
     }
 
     #endregion

@@ -8,11 +8,13 @@ public class ComponentController : MonoBehaviour
     #region Declaracoes
 
     [Header("Propriedades do componente")] 
-    [SerializeField] internal bool isInteractable;
-    [SerializeField] internal bool isOn;
-    public List<ComponentController> connectedComponentsList;
-    internal ComponentUI componentUI;
+    public bool isInteractable;
+    public Transform groundPole;
+    public Transform powerPole;
     
+    public bool isOn; //
+    public List<ComponentController> connectedComponentsList; //
+    private ComponentUI _componentUI;
 
     #endregion
 
@@ -20,19 +22,21 @@ public class ComponentController : MonoBehaviour
 
     internal bool IsInteractable => isInteractable;
 
+    public ComponentUI ComponentUI => _componentUI;
+
     #endregion
 
     #region Funcoes MonoBehaviour
 
     private void Awake()
     {
-        componentUI = GetComponent<ComponentUI>();
+        _componentUI = GetComponent<ComponentUI>();
     }
 
     internal void Start()
     {
         connectedComponentsList = new List<ComponentController>();
-        componentUI.UpdateUI();
+        _componentUI.UpdateUI();
     }
     
     #endregion
@@ -46,7 +50,7 @@ public class ComponentController : MonoBehaviour
     
     public virtual void Disconnect()
     {
-        CircuitManager.instance.DisconnectAllFromComponent(this);
+        CircuitManager.instance.DisconnectComponentFromAllComponents(this);
     }
     
     public virtual void Interact()
@@ -67,7 +71,7 @@ public class ComponentController : MonoBehaviour
     #endregion
     
     #region Funcoes Ajudantes
-    
+
     #endregion
     
 }
