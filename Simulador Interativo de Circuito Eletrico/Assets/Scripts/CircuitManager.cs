@@ -35,6 +35,7 @@ public class CircuitManager : MonoBehaviour
         else
             instance = this;
 
+        // Pega referencias e reseta bibliotecas e listas.
         _components = GetComponentsInChildren<ComponentController>();
         _cableConnectionDictionary = new Dictionary<Tuple<ComponentController, ComponentController>, Tuple<LineRenderer, LineRenderer>>();
     }
@@ -50,13 +51,17 @@ public class CircuitManager : MonoBehaviour
 
     public void UpdateCircuitState()
     {
+        // Update ui.
         circuitStateText.text = "Circuito" + ((_isCircuitComplete) ? " Completo" : " Incompleto");
         circuitStateText.color = (_isCircuitComplete) ? Color.green : Color.red;
     }
 
     public void StartConnection(ComponentController component)
     {
+        // Seleciona componente.
         _firstSelectedComponent = component;
+        
+        // Update ui.
         for (int i = 0; i < _components.Length; i++)
         {
             if (_components[i] == component)
@@ -79,12 +84,13 @@ public class CircuitManager : MonoBehaviour
         for (int i = 0; i < _components.Length; i++)
             _components[i].ComponentUI.UpdateUI(ComponentUIState.Normal);
         
-        // Create cable.
+        // Cria cabo visual.
         DrawCable(_firstSelectedComponent, _lastSelectedComponent);
     }
 
     public void CancelConnection()
     {
+        // Deseleciona tudo.
         _firstSelectedComponent = null;
         _lastSelectedComponent = null;
         
@@ -95,10 +101,10 @@ public class CircuitManager : MonoBehaviour
     
     public void DisconnectComponentFromAllComponents(ComponentController component)
     {
-        // Remove line cables.
+        // Remove cabos visualemnte.
         EraseCable(component);
         
-        // Remove connections.
+        // Remove coneccoes entre componentes.
         foreach (ComponentController otherComponent in component.connectedComponentsList)
         {
             if (otherComponent.connectedComponentsList.Contains(component))
@@ -127,22 +133,23 @@ public class CircuitManager : MonoBehaviour
             _newGroundCableLineRenderer.SetPosition(0, firstComponent.groundPole.transform.position);
             _newGroundCableLineRenderer.SetPosition(1, lastComponent.groundPole.transform.position);
 
+            // Adiciona ambos os cabos a um direcionario de cabos.
             _cableConnectionDictionary.Add(new Tuple<ComponentController, ComponentController>(firstComponent, lastComponent), new Tuple<LineRenderer, LineRenderer>(_newPowerCableLineRenderer, _newGroundCableLineRenderer));
         }
-
-        Debug.Log(_cableConnectionDictionary.Count);
     }
     
     private void EraseCable(ComponentController component)
     {
         foreach (ComponentController _connectedComponent in component.connectedComponentsList)
         {
+            // Apaga cabo fase do tela e do dicionario.
             if (_cableConnectionDictionary.ContainsKey(new Tuple<ComponentController, ComponentController>(component, _connectedComponent)))
             {
                 Destroy(_cableConnectionDictionary[new Tuple<ComponentController, ComponentController>(component, _connectedComponent)].Item1.gameObject);
                 Destroy(_cableConnectionDictionary[new Tuple<ComponentController, ComponentController>(component, _connectedComponent)].Item2.gameObject);
                 _cableConnectionDictionary.Remove(new Tuple<ComponentController, ComponentController>(component, _connectedComponent));
             }
+            // Apaga cabo neutro do tela e do dicionario.
             else if (_cableConnectionDictionary.ContainsKey(new Tuple<ComponentController, ComponentController>(_connectedComponent, component)))
             {
                 Destroy(_cableConnectionDictionary[new Tuple<ComponentController, ComponentController>(_connectedComponent, component)].Item1.gameObject);
@@ -150,8 +157,6 @@ public class CircuitManager : MonoBehaviour
                 _cableConnectionDictionary.Remove(new Tuple<ComponentController, ComponentController>(_connectedComponent, component));
             }
         }
-        
-        Debug.Log(_cableConnectionDictionary.Count);
     }
 
     #endregion

@@ -30,6 +30,7 @@ public class ComponentController : MonoBehaviour
 
     private void Awake()
     {
+        // Pega referencias e reseta bibliotecas e listas.
         _componentUI = GetComponent<ComponentUI>();
     }
 
