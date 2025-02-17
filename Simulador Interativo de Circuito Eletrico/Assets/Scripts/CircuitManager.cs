@@ -58,11 +58,14 @@ public class CircuitManager : MonoBehaviour
             _component.hasPower = false;
         
         // Alimenta todos os dispositivos conectador a uma fonte.
+        bool _doesAnyPowerHaveConnection = false;
         foreach (ComponentController _component in _components)
         {
             if (_component.GetComponent<PowerComponentController>())
             {
                 _component.hasPower = true;
+                if (_component.connectedComponentsList.Count > 0)
+                    _doesAnyPowerHaveConnection = true;
                 for (int _i = 0; _i < _component.connectedComponentsList.Count; _i++)
                 {
                     if (_component.connectedComponentsList[_i] != _component)
@@ -94,6 +97,12 @@ public class CircuitManager : MonoBehaviour
         
         // Checar se circuito complete.
         ValidateCircuit();
+        
+        // Tocar ou parar som de energia.
+        if (_doesAnyPowerHaveConnection && !electricAudioSource.isPlaying)
+            electricAudioSource.Play();
+        else if (!_doesAnyPowerHaveConnection && electricAudioSource.isPlaying)
+            electricAudioSource.Stop();
     }
 
     public void StartConnection(ComponentController component)
@@ -225,12 +234,6 @@ public class CircuitManager : MonoBehaviour
         // Update ui.
         circuitStateText.text = "Circuito" + ((_isCircuitValid) ? " Completo" : " Incompleto");
         circuitStateText.color = (_isCircuitValid) ? Color.green : Color.red;
-        
-        // Tocar ou parar som de energia.
-        if (_components[2].hasPower && !electricAudioSource.isPlaying)
-            electricAudioSource.Play();
-        else if (!_components[2].hasPower && electricAudioSource.isPlaying)
-            electricAudioSource.Stop();
         
         // Tocar som de vitoria.
         if (_isCircuitValid)
